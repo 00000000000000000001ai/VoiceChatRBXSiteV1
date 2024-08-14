@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Audio Uploader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        #uploader {
+            margin-top: 20px;
+        }
+        #fileInput {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #uploadBtn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #audioLink {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roblox Audio Uploader</h1>
+    <div id="uploader">
+        <input type="file" id="fileInput" accept="audio/*">
+        <button id="uploadBtn">Upload</button>
+    </div>
+    <div id="audioLink"></div>
+
+    <script>
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select an audio file to upload.');
+                return;
+            }
+
+            // Для GitHub Pages загрузка файлов вручную, так как она статическая.
+            // Либо используйте Glitch/Netlify/Vercel для динамической загрузки.
+
+            // Предположим, что файл уже загружен вручную на GitHub Pages.
+            var fakeUploadURL = 'https://your-github-username.github.io/your-repo-name/' + file.name;
+
+            // Создание ссылки для воспроизведения аудио в Roblox
+            var audioLink = document.createElement('a');
+            audioLink.href = fakeUploadURL;
+            audioLink.textContent = 'Audio URL: ' + fakeUploadURL;
+            audioLink.target = '_blank';
+
+            var audioLinkContainer = document.getElementById('audioLink');
+            audioLinkContainer.innerHTML = '';
+            audioLinkContainer.appendChild(audioLink);
+
+            alert('Upload completed! Copy the URL for use in Roblox.');
+        });
+    </script>
+</body>
+</html>
